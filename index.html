@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MrShadow's Project</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo"></div>
+        <h1>SecureChat</h1>
+        <small>Premium • Encrypted Rooms</small>
+      </div>
+      <div class="actions">
+        <button id="createRoomBtn" class="btn primary">Create Room</button>
+        <button id="joinRoomBtn" class="btn ghost">Join Room</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <div class="search"><input id="searchRooms" placeholder="Search rooms..."/></div>
+        <div id="roomsList" class="rooms"></div>
+      </aside>
+
+      <section class="chatpane">
+        <div class="roomHeader" id="roomHeader">Select or create a room to begin</div>
+        <div class="messages" id="messages"></div>
+        <div class="composer">
+          <input id="msgInput" placeholder="Say something..." />
+          <button id="sendBtn" class="btn">Send</button>
+        </div>
+      </section>
+
+      <aside class="rightpanel">
+        <div class="card" id="roomInfo">Room Info</div>
+        <div class="card">
+          <h4>Participants</h4>
+          <ul id="participantsList"></ul>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Create Room Modal -->
+    <div id="createModal" class="modal">
+      <div class="modalCard">
+        <h2>Create Room</h2>
+        <input id="roomName" placeholder="Room name" />
+        <select id="algorithm">
+          <option value="RSA">RSA</option>
+          <option value="ElGamal">ElGamal</option>
+          <option value="DES">DES</option>
+          <option value="PQC-KEM">Kyber</option>
+          <option value="PQC-KEM">Dilithium</option>
+          <option value="PQC-KEM">Falcon</option>
+          <option value="PQC-KEM">SPHINCS+</option>
+          <option value="PQC-KEM">Classic McEliece</option>
+          <option value="PQC-KEM">BIKE</option>
+          <option value="PQC-KEM">HQC</option>
+          <option value="PQC-KEM">FrodoKEM</option>
+          <option value="PQC-KEM">NTRU</option>
+          <option value="PQC-KEM">NTRU Prime</option>
+          <option value="PQC-KEM">Saber</option>
+          <option value="PQC-KEM">NewHope</option>
+          <option value="PQC-KEM">Rainbow</option>
+          <option value="PQC-KEM">Picnic</option>
+        </select>
+        <input id="passphrase" placeholder="Room passphrase" />
+        <button id="createSubmit" class="btn primary">Create</button>
+        <button id="createClose" class="btn ghost">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Join Room Modal -->
+    <div id="joinModal" class="modal">
+      <div class="modalCard">
+        <h2>Join Room</h2>
+        <input id="joinRoomId" placeholder="Room ID" />
+        <input id="joinPass" placeholder="Passphrase" />
+        <input id="joinName" placeholder="Your name" />
+        <button id="joinSubmit" class="btn primary">Join</button>
+        <button id="joinClose" class="btn ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/static/js/socket_main.js"></script>
+</body>
+</html>

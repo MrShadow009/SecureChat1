@@ -1,0 +1,25 @@
+import pqcrypto
+
+def generate_keys():
+    """
+    Generate Classic McEliece key pair.
+    Returns public key and secret key as bytes.
+    """
+    public_key, secret_key = pqcrypto.kem.mceliece6960119.keypair()
+    return public_key, secret_key
+
+def encapsulate(public_key):
+    """
+    Encapsulate a shared secret using the public key.
+    Returns ciphertext and shared secret.
+    """
+    ciphertext, shared_secret = pqcrypto.kem.mceliece6960119.encapsulate(public_key)
+    return ciphertext, shared_secret
+
+def decapsulate(secret_key, ciphertext):
+    """
+    Decapsulate the shared secret using the secret key and ciphertext.
+    Returns the shared secret.
+    """
+    shared_secret = pqcrypto.kem.mceliece6960119.decapsulate(secret_key, ciphertext)
+    return shared_secret

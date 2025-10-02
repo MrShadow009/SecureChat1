@@ -1,0 +1,139 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "static/style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "static/js/socket_main.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "templates/index_socketio.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "requirements.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "README.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "TODO.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "templates/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "app.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "client.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "DES_Decrypt.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "DES_Encrypt.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "el_gamal.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "RSA.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "server.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/bike.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/classic_mceliece.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/csidh.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/dilithium.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/falcon.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/frodo.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/hqc.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/kyber.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/newhope.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/ntru_encrypt.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/ntruprime.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/picnic.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/rainbow.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/saber.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "pqc_algorithms/sphincsplus.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "static/script.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/app.py"
+    }
+  ]
+}

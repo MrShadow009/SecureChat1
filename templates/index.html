@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outer Space Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="nebula"></div>
+    <header class="header">
+        <div class="logo">🌌 SecureChat</div>
+        <div class="header-actions">
+            <button id="join-room-btn" class="btn">Join Room</button>
+            <button id="settings-btn">⚙️</button>
+            <div class="avatar">👤</div>
+        </div>
+    </header>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Rooms</h2>
+            <button id="create-room-btn" class="btn">Create Room</button>
+            <div id="rooms-list"></div>
+        </aside>
+        <main class="chat-area">
+            <div class="chat-header">
+                <h2 id="room-title">Welcome to SpaceChat</h2>
+                <div id="room-info"></div>
+            </div>
+            <div id="messages" class="messages"></div>
+            <div class="composer">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button id="send-btn" class="btn">Send</button>
+            </div>
+        </main>
+        <aside class="right-panel">
+            <h2>Room Members</h2>
+            <div id="members-list"></div>
+            <div class="crypto-info">
+                <h3>Cryptography</h3>
+                <p id="algorithm">Algorithm: None</p>
+                <p id="session-key">Session Key: Hidden</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modals -->
+    <div id="create-room-modal" class="modal">
+        <div class="modal-content">
+            <h2>Create Room</h2>
+            <input type="text" id="room-name" placeholder="Room Name">
+            <select id="algorithm-select">
+                <option value="1">DES</option>
+                <option value="2">ELGAMAL</option>
+                <option value="3">RSA</option>
+                <option value="4">CRYSTALS-Kyber</option>
+                <!-- Add more -->
+            </select>
+            <input type="password" id="passphrase" placeholder="Passphrase">
+            <input type="text" id="creator" placeholder="Your Name">
+            <button id="submit-create" class="btn">Create</button>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <div id="join-room-modal" class="modal">
+        <div class="modal-content">
+            <h2>Join Room</h2>
+            <input type="text" id="join-room-id" placeholder="Room ID">
+            <input type="password" id="join-passphrase" placeholder="Passphrase">
+            <input type="text" id="join-username" placeholder="Your Name">
+            <button id="submit-join" class="btn">Join</button>
+            <button class="close-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
